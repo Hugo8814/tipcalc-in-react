@@ -10,6 +10,7 @@ function TipCalc() {
   const [billAmount, setBillAmount] = useState("");
   const [numberOfPeople, setNumberOfPeople] = useState("");
   const [tipPercentage, setTipPercentage] = useState("");
+  const total = (billAmount * (1 + tipPercentage / 100)) / numberOfPeople;
 
   function handleNumberOfPeopleChange(e) {
     setNumberOfPeople(e.target.value);
@@ -34,7 +35,7 @@ function TipCalc() {
           tipPercentage={tipPercentage}
           onHandleTipPercentage={handleTipPercentageChange}
         />
-        <Side2 />
+        <Side2 total={total} />
       </div>
     </div>
   );
